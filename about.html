@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Xynera Global & Ozone Education</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Plus Jakarta Sans", "sans-serif"] },
+            colors: {
+              brand: {
+                primary: "#044C9C" /* Deep Royal Blue */,
+                dark: "#04244C" /* Dark Navy */,
+                teal: "#009C9C" /* Electric Teal Accent */,
+                soft: "#f4f8fc",
+              },
+            },
+            animation: {
+              "fade-in-up":
+                "fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              "grid-pulse": "gridPulse 8s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(24px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              gridPulse: {
+                "0%, 100%": { opacity: "0.25" },
+                "50%": { opacity: "0.45" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #fafbfc;
+        overflow-x: hidden;
+      }
+
+      .editorial-grid {
+        background-size: 60px 60px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(4, 36, 76, 0.015) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(4, 36, 76, 0.015) 1px,
+            transparent 1px
+          );
+      }
+    </style>
+  </head>
+
+  <body class="text-slate-900 antialiased">
+    <div
+      class="fixed inset-0 pointer-events-none z-0 opacity-30 animate-grid-pulse"
+    >
+      <div class="max-w-7xl mx-auto h-full w-full relative">
+        <div
+          class="absolute left-4 sm:left-6 lg:left-8 top-0 bottom-0 w-[1px] bg-slate-200"
+        ></div>
+        <div
+          class="absolute left-1/4 top-0 bottom-0 w-[1px] bg-slate-100 hidden lg:block"
+        ></div>
+        <div
+          class="absolute left-2/4 top-0 bottom-0 w-[1px] bg-slate-100 hidden lg:block"
+        ></div>
+        <div
+          class="absolute left-3/4 top-0 bottom-0 w-[1px] bg-slate-100 hidden lg:block"
+        ></div>
+        <div
+          class="absolute right-4 sm:right-6 lg:right-8 top-0 bottom-0 w-[1px] bg-slate-200"
+        ></div>
+      </div>
+    </div>
+
+    <header
+      x-data="{ mobileMenuOpen: false }"
+      class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <a href="index.html">
+            <img src="logo2.png" alt="Ozone Network"
+              class="h-28 sm:h-4.5 w-auto object-contain ml-1.5 opacity-90 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-0.5" />
+          </a>
+          </div>
+
+          <nav
+            class="hidden lg:flex items-center gap-12 text-[11px] font-bold uppercase tracking-widest text-slate-600"
+          >
+            <a
+              href="index.html"
+              class="hover:text-brand-primary transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-primary after:transition-all hover:after:w-full"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="text-brand-primary border-b-2 border-brand-primary py-1"
+              >About</a
+            >
+            <a
+              href="service.html"
+              class="hover:text-brand-primary transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-brand-primary after:transition-all hover:after:w-full"
+              >Services</a
+            >
+          </nav>
+
+          <div class="[@media(min-width:44px)_and_(max-width:1023.2px)]:hidden">
+            <a
+              href="contact.html"
+              class="text-[11px] font-black uppercase tracking-widest text-white bg-brand-dark hover:bg-brand-primary transition-all duration-300 px-6 py-3.5 border border-transparent inline-block transform hover:-translate-y-0.5 shadow-sm"
+            >
+              Contact Direct
+            </a>
+          </div>
+
+          <div class="flex lg:hidden">
+            <button
+              @click="mobileMenuOpen = !mobileMenuOpen"
+              type="button"
+              class="text-brand-dark p-2 focus:outline-none relative w-10 h-10 flex items-center justify-center"
+            >
+              <div
+                class="flex flex-col gap-1.5 w-5 transform transition-transform duration-300"
+                :class="{'rotate-45': mobileMenuOpen}"
+              >
+                <span
+                  class="w-5 h-[2px] bg-brand-dark transition-all duration-300"
+                  :class="{'translate-y-[8px] rotate-45': mobileMenuOpen}"
+                ></span>
+                <span
+                  class="w-4 h-[2px] bg-brand-dark transition-all duration-300 self-end"
+                  :class="{'opacity-0 w-0': mobileMenuOpen}"
+                ></span>
+                <span
+                  class="w-5 h-[2px] bg-brand-dark transition-all duration-300"
+                  :class="{'-translate-y-[8px] -rotate-90': mobileMenuOpen}"
+                ></span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        x-show="mobileMenuOpen"
+        x-transition:enter="transition ease-out duration-250"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        class="lg:hidden absolute w-full bg-white border-b border-slate-200/80 z-40 shadow-xl"
+        style="display: none"
+      >
+        <div
+          class="px-6 pt-4 pb-8 space-y-1.5 text-left bg-white border-t border-slate-100/60"
+        >
+          <a
+            href="index.html"
+            class="block text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-primary py-3.5 border-b border-slate-100 transition-colors"
+            >Home
+          </a>
+          <a
+            href="about.html"
+            class="block text-xs font-black uppercase tracking-widest text-brand-primary py-3.5 border-b border-slate-100 transition-colors flex items-center justify-between"
+            >about
+          </a>
+          <a
+            href="service.html"
+            class="block text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-primary py-3.5 border-b border-slate-100 transition-colors"
+          >
+            <span>Services</span>
+            
+          </a>
+
+          <div class="pt-4">
+            <a
+              href="contact.html"
+              class="block w-full text-center text-xs font-black uppercase tracking-widest text-white bg-brand-dark py-4 shadow-md active:scale-[0.98] transition-transform"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="relative bg-white pt-16 pb-20 overflow-hidden border-b border-slate-200/80 editorial-grid z-10 opacity-0 animate-fade-in-up"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <span
+          class="text-[10px] font-extrabold uppercase tracking-[0.25em] text-brand-teal block mb-3"
+          >— Institutional Profile</span
+        >
+        <h1
+          class="text-4xl sm:text-6xl font-light tracking-tighter text-brand-dark leading-[0.95] uppercase mb-12"
+        >
+          Architecting pathways <br />for global
+          <span class="font-black text-brand-primary"
+            >academic integrations</span
+          >.
+        </h1>
+
+        <div
+          class="grid lg:grid-cols-12 gap-12 border-t border-slate-200/80 pt-12"
+        >
+          <div
+            class="lg:col-span-7 space-y-6 text-sm text-slate-500 leading-relaxed"
+          >
+            <p class="font-bold text-brand-dark text-base tracking-tight">
+              Xynera Global and Ozone Education represent a consolidated
+              educational nexus established to systematically bridge local
+              aspirations with international university alignments and
+              professional certifications.
+            </p>
+            <p>
+              With our central command operating from Avenue Plaza, near MES
+              Kalladi College, Mannarkkad, we provide a sophisticated
+              infrastructure designed to process credential compliance, course
+              architecture evaluations, and accelerated institutional validation
+              models.
+            </p>
+            <p>
+              Whether formatting undergraduate pathways, professional research
+              frameworks, or specializing in physical education streams like BEd
+              and MEd programs, our system enforces complete documentation
+              parity to secure absolute acceptance parameters across globally
+              recognized domains.
+            </p>
+          </div>
+
+          <div
+            class="lg:col-span-5 bg-brand-soft p-8 border border-slate-200 space-y-6 transform hover:scale-[1.01] transition-transform duration-300"
+          >
+            <div>
+              <h4
+                class="text-xs font-black uppercase text-brand-dark tracking-wider mb-2"
+              >
+                Our Operating Core
+              </h4>
+              <p class="text-xs text-slate-500 leading-relaxed">
+                Providing high-performance educational consulting systems that
+                eliminate entry barriers for candidates tracking standard or
+                cross-border academic programs.
+              </p>
+            </div>
+            <div class="border-t border-slate-200 pt-4">
+              <h4
+                class="text-xs font-black uppercase text-brand-dark tracking-wider mb-3"
+              >
+                System Metrics Log
+              </h4>
+              <ul class="space-y-2.5 text-[11px] text-slate-600 font-medium">
+                <li class="flex items-center gap-2 group">
+                  <span
+                    class="w-1.5 h-1.5 bg-brand-primary rounded-full group-hover:scale-150 transition-transform"
+                  ></span>
+                  100% University Compliance Alignment
+                </li>
+                <li class="flex items-center gap-2 group">
+                  <span
+                    class="w-1.5 h-1.5 bg-brand-teal rounded-full group-hover:scale-150 transition-transform"
+                  ></span>
+                  Multi-Tier Document Verification Engine
+                </li>
+                <li class="flex items-center gap-2 group">
+                  <span
+                    class="w-1.5 h-1.5 bg-brand-dark rounded-full group-hover:scale-150 transition-transform"
+                  ></span>
+                  Accelerated Direct-Link University Routing
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 border-b border-slate-200 bg-white z-10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+          <div
+            class="space-y-4 border-l-2 border-brand-primary pl-6 sm:pl-8 transform hover:translate-x-2 transition-transform duration-300"
+          >
+            <span
+              class="text-[9px] font-mono font-bold text-brand-teal tracking-[0.2em] uppercase block"
+              >01 / Long-Term Target</span
+            >
+            <h3
+              class="text-2xl font-black text-brand-dark uppercase tracking-tight"
+            >
+              Our Vision
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+              To become the premier institutional pathway provider globally
+              recognized for transforming student capabilities into structural
+              career systems. We aim to break regional barriers through
+              automated educational compliance and cross-border university
+              parameters that align instantly with future requirements.
+            </p>
+          </div>
+
+          <div
+            class="space-y-4 border-l-2 border-brand-teal pl-6 sm:pl-8 transform hover:translate-x-2 transition-transform duration-300"
+          >
+            <span
+              class="text-[9px] font-mono font-bold text-brand-teal tracking-[0.2em] uppercase block"
+              >02 / Execution Strategy</span
+            >
+            <h3
+              class="text-2xl font-black text-brand-dark uppercase tracking-tight"
+            >
+              Our Mission
+            </h3>
+            <p class="text-sm text-slate-500 leading-relaxed font-medium">
+              To provide precise, direct, and zero-compromise documentation
+              counseling for UG, PG, BEd, and MEd programs. We match every
+              single student profile against the highest academic verification
+              matrix, ensuring real-time application precision and secure
+              institutional tracking gates.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="py-20 border-b border-slate-200 bg-slate-50/50 z-10 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <span
+            class="text-[9px] font-black uppercase tracking-[0.25em] text-brand-teal block"
+            >— System Baselines</span
+          >
+          <h2
+            class="text-xl sm:text-3xl font-black text-brand-dark tracking-tight uppercase"
+          >
+            Our Core Values
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div
+            class="bg-white border border-slate-200 p-8 space-y-4 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary text-xs font-black group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300"
+            >
+              01
+            </div>
+            <h3
+              class="text-base font-black uppercase tracking-tight text-brand-dark"
+            >
+              Absolute Authenticity
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-medium">
+              Every file translation, university interface operation, and
+              profile transmission is benchmarked against zero-tolerance
+              verification validation layers.
+            </p>
+          </div>
+
+          <div
+            class="bg-white border border-slate-200 p-8 space-y-4 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xs font-black group-hover:bg-brand-teal group-hover:text-white transition-colors duration-300"
+            >
+              02
+            </div>
+            <h3
+              class="text-base font-black uppercase tracking-tight text-brand-dark"
+            >
+              Uncompromised Precision
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-medium">
+              Dedicated structural cells specializing in Physical Education,
+              BEd, MEd, and advanced stream counseling, fully synchronized under
+              our senior academic directrate.
+            </p>
+          </div>
+
+          <div
+            class="bg-white border border-slate-200 p-8 space-y-4 transform hover:-translate-y-1 hover:shadow-xl transition-all duration-300 group"
+          >
+            <div
+              class="w-8 h-8 rounded-full bg-brand-dark/10 flex items-center justify-center text-brand-dark text-xs font-black group-hover:bg-brand-dark group-hover:text-white transition-colors duration-300"
+            >
+              03
+            </div>
+            <h3
+              class="text-base font-black uppercase tracking-tight text-brand-dark"
+            >
+              Cross-Border Execution
+            </h3>
+            <p class="text-xs text-slate-500 leading-relaxed font-medium">
+              Mitigating migration anomalies by formatting strict global
+              documentation baselines that process data securely across
+              universities worldwide.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white z-10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="border-b border-slate-200/80 pb-6 mb-16">
+          <span
+            class="text-[9px] font-black uppercase tracking-[0.25em] text-brand-teal block"
+            >— Organization Registry</span
+          >
+          <h2
+            class="text-2xl sm:text-4xl font-black text-brand-dark tracking-tight uppercase"
+          >
+            Executive Directorate & Administration
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div
+            class="border border-slate-200 bg-white p-4 flex flex-col justify-between hover:border-brand-primary hover:shadow-lg transition-all duration-300 group"
+          >
+            <div class="space-y-4">
+              <div
+                class="aspect-[3/4] bg-slate-100 overflow-hidden relative border border-slate-200"
+              >
+                <img
+                  src="img1.jpeg"
+                  alt="Sayyed Sinan PM"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 duration-500 transition-all ease-out"
+                />
+              </div>
+              <div>
+                <span
+                  class="text-[9px] font-bold text-brand-teal tracking-widest block uppercase"
+                  >Executive Office</span
+                >
+                <h4
+                  class="text-sm font-black text-brand-dark uppercase tracking-tight"
+                >
+                  Sayyed Sinan PM
+                </h4>
+                <p class="text-xs text-brand-primary font-bold tracking-wide">
+                  Chief Executive Officer
+                </p>
+              </div>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-100 mt-4 text-[10px] font-mono text-slate-400"
+            >
+              ID-LOG: CEO-2026-ACTIVE
+            </div>
+          </div>
+
+          <div
+            class="border border-slate-200 bg-white p-4 flex flex-col justify-between hover:border-brand-primary hover:shadow-lg transition-all duration-300 group"
+          >
+            <div class="space-y-4">
+              <div
+                class="aspect-[3/4] bg-slate-100 overflow-hidden relative border border-slate-200"
+              >
+                <img
+                  src="img4.jpeg"
+                  alt="Varsha M"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 duration-500 transition-all ease-out"
+                />
+              </div>
+              <div>
+                <span
+                  class="text-[9px] font-bold text-brand-teal tracking-widest block uppercase"
+                  >Zonal Operations</span
+                >
+                <h4
+                  class="text-sm font-black text-brand-dark uppercase tracking-tight"
+                >
+                  Varsha M
+                </h4>
+                <p class="text-xs text-brand-primary font-bold tracking-wide">
+                  Regional Manager
+                </p>
+              </div>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-100 mt-4 text-[10px] font-mono text-slate-400"
+            >
+              ID-LOG: RM-2026-VARSHA
+            </div>
+          </div>
+
+          <div
+            class="border border-slate-200 bg-white p-4 flex flex-col justify-between hover:border-brand-primary hover:shadow-lg transition-all duration-300 group"
+          >
+            <div class="space-y-4">
+              <div
+                class="aspect-[3/4] bg-slate-100 overflow-hidden relative border border-slate-200"
+              >
+                <img
+                  src="img3.jpeg"
+                  alt="Bhavana P C"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 duration-500 transition-all ease-out"
+                />
+              </div>
+              <div>
+                <span
+                  class="text-[9px] font-bold text-brand-teal tracking-widest block uppercase"
+                  >Physical Education, BEd, MEd</span
+                >
+                <h4
+                  class="text-sm font-black text-brand-dark uppercase tracking-tight"
+                >
+                  Bhavana P C
+                </h4>
+                <p class="text-xs text-brand-primary font-bold tracking-wide">
+                  Senior Academic Counselor
+                </p>
+              </div>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-100 mt-4 text-[10px] font-mono text-slate-400"
+            >
+              ID-LOG: SAC-2026-BHAVANA
+            </div>
+          </div>
+
+          <div
+            class="border border-slate-200 bg-white p-4 flex flex-col justify-between hover:border-brand-primary hover:shadow-lg transition-all duration-300 group"
+          >
+            <div class="space-y-4">
+              <div
+                class="aspect-[3/4] bg-slate-100 overflow-hidden relative border border-slate-200"
+              >
+                <img
+                  src="img2.jpeg"
+                  alt="Anju Krishna PK"
+                  class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 duration-500 transition-all ease-out"
+                />
+              </div>
+              <div>
+                <span
+                  class="text-[9px] font-bold text-brand-teal tracking-widest block uppercase"
+                  >UG / PG Department</span
+                >
+                <h4
+                  class="text-sm font-black text-brand-dark uppercase tracking-tight"
+                >
+                  Anju Krishna PK
+                </h4>
+                <p class="text-xs text-brand-primary font-bold tracking-wide">
+                  Administrative Officer
+                </p>
+              </div>
+            </div>
+            <div
+              class="pt-4 border-t border-slate-100 mt-4 text-[10px] font-mono text-slate-400"
+            >
+              ID-LOG: ADM-2026-ANJU
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-brand-dark text-slate-400 pt-16 pb-12 border-t border-slate-900 relative z-10"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-slate-800/60"
+        >
+          <div class="md:col-span-5 -mt-20">
+            <div class="flex items-center">
+              <img
+                src="logo1.png"
+                alt="Xynera Global & Ozone Education Network Logo"
+                class="h-34 w-auto object-contain opacity-95 transition-opacity duration-300"
+              />
+            </div>
+            <p
+              class="text-xs text-slate-400 leading-relaxed max-w-sm font-medium"
+            >
+              Processing high-end operational framework loops across regional
+              networks, academic tracks, and global institutional metrics
+              safely.
+            </p>
+          </div>
+
+          <div class="md:col-span-3 space-y-4">
+            <h4
+              class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500"
+            >
+              — Navigation
+            </h4>
+            <ul class="space-y-2.5 text-xs font-bold uppercase tracking-wider">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-white transition-colors block py-0.5"
+                  >Index Platform</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-white transition-colors block py-0.5"
+                  >Corporate History</a
+                >
+              </li>
+              <li>
+                <a href="services.html" class="text-brand-teal block py-0.5"
+                  >Capabilities Hub</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-white transition-colors block py-0.5"
+                  >Secure Terminal</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-4 space-y-4">
+            <h4
+              class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500"
+            >
+              — Administrative Node
+            </h4>
+            <p class="text-xs text-slate-400 font-semibold leading-relaxed">
+              Avenue Plaza Location,<br />
+              Near MES Kalladi College,<br />
+              Mannarkkad, Palakkad, Kerala<br />
+              <span class="text-slate-500 font-mono tracking-normal block pt-2"
+                >Log: +91 85901 01284</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-8 text-[9px] font-bold uppercase tracking-widest text-slate-500"
+        >
+          <div class="flex items-center gap-3">
+            <span
+              class="w-1.5 h-1.5 bg-brand-teal rounded-full animate-pulse"
+            ></span>
+            <span>System Compliance: 2026 Logs Checked</span>
+          </div>
+          <div class="text-left sm:text-right leading-relaxed">
+            &copy; 2026 Xynera Global & Ozone Education Network. All procedural
+            tracks secured.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
